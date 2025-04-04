@@ -1,0 +1,7 @@
+fastapi
+pydantic[email]>=2
+python-dotenv==0.21.0
+sqlalchemy
+alembic
+pydantic_settings==2.8.1
+psycopg2

@@ -1,0 +1,4 @@
+-r base.in
+pytest-cov==3.0.0
+pytest-httpx==0.21.3
+pytest==7.1.2
