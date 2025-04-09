@@ -1,0 +1,43 @@
+version: '3'
+
+services:
+#  db-astolfo:
+#    container_name: 'db'
+#    image: postgres:13
+#    ports:
+#      - "5432:5432"
+#    volumes:
+#      - db_data:/var/lib/postgreSQL
+#    restart: always
+#    environment:
+#      POSTGRES_USER: postgres
+#      POSTGRES_PASSWORD: postgrespw
+#      POSTGRES_DB: astolfo
+#      POSTGRES_PORT: 5432
+#    networks:
+#      - backend
+
+  astolfo-api:
+    container_name: 'astolfo-api'
+    build:
+      context: backend/
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+#    depends_on:
+#      - db-astolfo
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgrespw
+      POSTGRES_SERVER: db
+    networks:
+      - backend
+
+
+volumes:
+  db_data:
+
+networks:
+  backend:
+    driver: "bridge"
+
